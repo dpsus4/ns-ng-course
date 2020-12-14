@@ -3,6 +3,6 @@
     hint="Challenge title"
     [(ngModel)]="challengeDescription"
   ></TextField>
-  <Button (tap)="onSetChallenge()" text="Set challenge"></Button>
-  <Label [text]="currentChallenge"> </Label>
+  <Button class="btn" (tap)="onSetChallenge()" text="Set challenge"></Button>
+  <Label class="title" [text]="currentChallenge"> </Label>
 </StackLayout>

@@ -24,7 +24,22 @@ The following CSS rule changes the font size of all Buttons that have the
     font-size: 18;
 } */
 
-StackLayout {
+/* StackLayout {
     border-color: green;
     border-width: 8;
+} */
+
+.btn {
+    background: #7c015d;
+    border-width: 1;
+    border-color: #7c015d;
+    color: white;
+    width: 400;
+    padding: 5 10;
+    border-radius: 30%;
+    margin: 5 0;
+}
+
+TextField {
+
 }
