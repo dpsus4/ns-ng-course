@@ -4,6 +4,8 @@ import { NativeScriptFormsModule, NativeScriptModule } from "@nativescript/angul
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CurrentChallengeComponent } from './challenges/current-challenge/current-challenge.component';
+import { FlexboxComponent } from './layouts/flexbox/flexbox.component';
+import { GridComponent } from './layouts/grid/grid.component';
 
 @NgModule({
     bootstrap: [
@@ -16,7 +18,9 @@ import { CurrentChallengeComponent } from './challenges/current-challenge/curren
     ],
     declarations: [
         AppComponent,
-        CurrentChallengeComponent
+        CurrentChallengeComponent,
+        FlexboxComponent,
+        GridComponent
     ],
     providers: [],
     schemas: [
