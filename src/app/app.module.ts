@@ -7,6 +7,7 @@ import { CurrentChallengeComponent } from './challenges/current-challenge/curren
 import { FlexboxComponent } from './layouts/flexbox/flexbox.component';
 import { GridComponent } from './layouts/grid/grid.component';
 import { AbsoluteComponent } from './layouts/absolute/absolute.component';
+import { ChallengeEditComponent } from './challenges/challenge-edit/challenge-edit.component';
 
 @NgModule({
     bootstrap: [
@@ -20,6 +21,7 @@ import { AbsoluteComponent } from './layouts/absolute/absolute.component';
     declarations: [
         AppComponent,
         CurrentChallengeComponent,
+        ChallengeEditComponent,
         FlexboxComponent,
         GridComponent,
         AbsoluteComponent
