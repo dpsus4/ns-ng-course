@@ -1,3 +1,4 @@
+import { Input } from "@angular/core";
 import { Component } from "@angular/core";
 
 @Component({
@@ -7,5 +8,5 @@ import { Component } from "@angular/core";
     moduleId: module.id,
 })
 export class CurrentChallengeComponent {
-    currentChallenge = "";
+    @Input() challenges: string[] = [];
 }

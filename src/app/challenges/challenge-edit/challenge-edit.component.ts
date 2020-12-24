@@ -1,3 +1,5 @@
+import { Output } from "@angular/core";
+import { EventEmitter } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -6,6 +8,7 @@ import { Component, OnInit } from "@angular/core";
     styleUrls: ["./challenge-edit.component.css"],
 })
 export class ChallengeEditComponent implements OnInit {
+    @Output() input = new EventEmitter<string>();
     challengeDescription = "";
 
     constructor() {}
@@ -14,5 +17,6 @@ export class ChallengeEditComponent implements OnInit {
 
     onSetChallenge() {
         // this.currentChallenge = this.challengeDescription;
+        this.input.emit(this.challengeDescription);
     }
 }
