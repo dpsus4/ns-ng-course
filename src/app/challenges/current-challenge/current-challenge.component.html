@@ -1,4 +1,4 @@
-<ScrollView>
+<!-- <ScrollView>
   <StackLayout>
     <Label
       class="title"
@@ -8,4 +8,13 @@
     >
     </Label>
   </StackLayout>
-</ScrollView>
+</ScrollView> -->
+<ListView [items]="challenges" (itemTap)="onItemTap($event)" iosEstimatedRowHeight="65">
+  <ng-template let-challenge="item" let-i="index">
+    <GridLayout rows="40,20" columns="50,*">
+      <Label [text]="i" row="0" col="0" rowSpan="2"></Label>
+      <Label [text]="challenge" row="0" col="1"></Label>
+      <Label text="Item content row" row="1" col="1"></Label>
+    </GridLayout>
+  </ng-template>
+</ListView>

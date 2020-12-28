@@ -1,5 +1,6 @@
 import { Input } from "@angular/core";
 import { Component } from "@angular/core";
+import { ItemEventData } from "@nativescript/core/ui/list-view";
 
 @Component({
     selector: "ns-current-challenge",
@@ -9,4 +10,8 @@ import { Component } from "@angular/core";
 })
 export class CurrentChallengeComponent {
     @Input() challenges: string[] = [];
+
+    onItemTap(args: ItemEventData) {
+        console.log(args);
+    }
 }
