@@ -2,8 +2,11 @@
   <ns-current-challenge> </ns-current-challenge>
 </StackLayout> -->
 
-<FlexboxLayout>
+<!-- <FlexboxLayout>
   <ns-challenge-edit (input)="onChallengeInput($event)"></ns-challenge-edit>
   <ns-current-challenge [challengeTitle]="activeChallenge"> </ns-current-challenge>
-</FlexboxLayout>
+</FlexboxLayout> -->
 <!-- <ns-absolute></ns-absolute> -->
+<StackLayout>
+  <router-outlet></router-outlet>
+</StackLayout>

@@ -9,9 +9,11 @@ import { ItemEventData } from "@nativescript/core/ui/list-view";
     moduleId: module.id,
 })
 export class CurrentChallengeComponent {
-    @Input() challengeTitle = "";
+    // @Input() challengeTitle = "";
 
     // onItemTap(args: ItemEventData) {
     //     console.log(args);
     // }
+
+
 }

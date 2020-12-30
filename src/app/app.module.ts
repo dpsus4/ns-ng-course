@@ -8,6 +8,7 @@ import { FlexboxComponent } from './layouts/flexbox/flexbox.component';
 import { GridComponent } from './layouts/grid/grid.component';
 import { AbsoluteComponent } from './layouts/absolute/absolute.component';
 import { ChallengeEditComponent } from './challenges/challenge-edit/challenge-edit.component';
+import { AuthComponent } from "./auth/auth.component";
 
 @NgModule({
     bootstrap: [
@@ -16,7 +17,7 @@ import { ChallengeEditComponent } from './challenges/challenge-edit/challenge-ed
     imports: [
         NativeScriptModule,
         NativeScriptFormsModule,
-        AppRoutingModule
+        AppRoutingModule,
     ],
     declarations: [
         AppComponent,
@@ -24,7 +25,8 @@ import { ChallengeEditComponent } from './challenges/challenge-edit/challenge-ed
         ChallengeEditComponent,
         FlexboxComponent,
         GridComponent,
-        AbsoluteComponent
+        AbsoluteComponent,
+        AuthComponent
     ],
     providers: [],
     schemas: [

@@ -6,17 +6,20 @@ import { Component, OnInit } from "@angular/core";
     selector: "ns-challenge-edit",
     templateUrl: "./challenge-edit.component.html",
     styleUrls: ["./challenge-edit.component.css"],
+    moduleId: module.id
 })
-export class ChallengeEditComponent implements OnInit {
-    @Output() input = new EventEmitter<string>();
-    challengeDescription = "";
+export class ChallengeEditComponent {
+    // @Output() input = new EventEmitter<string>();
+    // challengeDescription = "";
 
-    constructor() {}
+    // constructor() {}
 
-    ngOnInit(): void {}
+    // ngOnInit(): void {}
 
-    onSetChallenge() {
-        // this.currentChallenge = this.challengeDescription;
-        this.input.emit(this.challengeDescription);
-    }
+    // onSetChallenge() {
+    //     // this.currentChallenge = this.challengeDescription;
+    //     this.input.emit(this.challengeDescription);
+    // }
+
+
 }
