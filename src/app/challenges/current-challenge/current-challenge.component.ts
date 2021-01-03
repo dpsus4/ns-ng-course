@@ -1,5 +1,6 @@
 import { Input } from "@angular/core";
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 import { ItemEventData } from "@nativescript/core/ui/list-view";
 
 @Component({
@@ -14,6 +15,9 @@ export class CurrentChallengeComponent {
     // onItemTap(args: ItemEventData) {
     //     console.log(args);
     // }
+    constructor(private router: Router) { }
 
-
+    onEdit() {
+        this.router.navigate(["/edit-challenge"]);
+    }
 }
