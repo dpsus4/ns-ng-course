@@ -18,6 +18,9 @@
     </GridLayout>
   </ng-template>
 </ListView> -->
+<ActionBar title="Current challenge" (loaded)="onLoadedActionBar()">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
 <StackLayout>
   <Label
     class="title"
