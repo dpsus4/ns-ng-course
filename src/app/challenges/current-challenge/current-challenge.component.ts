@@ -5,7 +5,6 @@ import { RouterExtensions } from "@nativescript/angular";
 import { isAndroid, Page } from "@nativescript/core";
 import { ItemEventData } from "@nativescript/core/ui/list-view";
 
-declare var android: any;
 
 @Component({
     selector: "ns-current-challenge",
@@ -19,20 +18,11 @@ export class CurrentChallengeComponent {
     // onItemTap(args: ItemEventData) {
     //     console.log(args);
     // }
-    constructor(private router: RouterExtensions, private page: Page) { }
+    constructor(private router: RouterExtensions) { }
 
     onEdit() {
         this.router.navigate(["/edit-challenge"]);
     }
 
-    onLoadedActionBar() {
-        if (isAndroid) {
-            const androidToolbar = this.page.actionBar.nativeView;
-            const backButton = androidToolbar.getNavigationIcon();
 
-            if (backButton) {
-                backButton.setColorFilter(android.graphics.Color.parseColor('#171717'), (<any>android.graphics).PorterDuff.Mode.SRC_ATOP);
-            }
-        }
-    }
 }

@@ -1,11 +1,11 @@
-<ActionBar title="Today's challenge"></ActionBar>
-<StackLayout>
-  <Label text="Today!">
+<ns-action-bar title="Today's challenge" [showBackButton]="false"></ns-action-bar>
 
-  </Label>
+<StackLayout>
+  <Label text="Today!"> </Label>
   <Button
     text="today works!"
     class="btn btn-primary"
     nsRouterLink="/current-challenge"
+    pageTransition="slideleft"
   ></Button>
 </StackLayout>

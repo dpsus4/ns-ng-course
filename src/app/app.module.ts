@@ -10,6 +10,7 @@ import { AbsoluteComponent } from './layouts/absolute/absolute.component';
 import { ChallengeEditComponent } from './challenges/challenge-edit/challenge-edit.component';
 import { AuthComponent } from "./auth/auth.component";
 import { TodayComponent } from "./challenges/today/today.component";
+import { ActionBarComponent } from "./shared/ui/action-bar/action-bar.component";
 
 @NgModule({
     bootstrap: [
@@ -28,7 +29,8 @@ import { TodayComponent } from "./challenges/today/today.component";
         GridComponent,
         AbsoluteComponent,
         AuthComponent,
-        TodayComponent
+        TodayComponent,
+        ActionBarComponent
     ],
     providers: [],
     schemas: [
