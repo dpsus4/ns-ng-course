@@ -11,6 +11,7 @@ import { ChallengeEditComponent } from './challenges/challenge-edit/challenge-ed
 import { AuthComponent } from "./auth/auth.component";
 import { TodayComponent } from "./challenges/today/today.component";
 import { ActionBarComponent } from "./shared/ui/action-bar/action-bar.component";
+import {NativeScriptUISideDrawerModule} from 'nativescript-ui-sidedrawer/angular/nativescript-ui-sidedrawer-angular';
 
 @NgModule({
     bootstrap: [
@@ -20,6 +21,7 @@ import { ActionBarComponent } from "./shared/ui/action-bar/action-bar.component"
         NativeScriptModule,
         NativeScriptFormsModule,
         AppRoutingModule,
+        NativeScriptUISideDrawerModule
     ],
     declarations: [
         AppComponent,

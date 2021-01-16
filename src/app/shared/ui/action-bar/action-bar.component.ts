@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { RouterExtensions } from "@nativescript/angular";
 import { isAndroid, Page } from "@nativescript/core";
+import {UIService} from '../ui.service';
 
 declare var android: any;
 
@@ -14,9 +15,13 @@ export class ActionBarComponent implements OnInit {
     @Input() title: string;
     @Input() showBackButton = true;
 
-    constructor(private page: Page, private router: RouterExtensions) {}
+    constructor(private page: Page, private router: RouterExtensions, private uiService: UIService) {}
 
     ngOnInit(): void {}
+
+    get android() {
+        return isAndroid;
+    }
 
     get canGoBack() {
         return this.router.canGoBack() && this.showBackButton;
@@ -38,5 +43,9 @@ export class ActionBarComponent implements OnInit {
                 );
             }
         }
+    }
+
+    onToggleMenu() {
+        this.uiService.toggleDrawer();
     }
 }
