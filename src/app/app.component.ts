@@ -1,6 +1,10 @@
-import { OnInit } from "@angular/core";
+import { OnInit, ViewChild } from "@angular/core";
 import { OnDestroy } from "@angular/core";
+import { AfterViewInit } from "@angular/core";
+import { ChangeDetectorRef } from "@angular/core";
 import { Component } from "@angular/core";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
 import { Subscription } from "rxjs";
 import { UIService } from "../app/shared/ui/ui.service";
 
@@ -8,17 +12,35 @@ import { UIService } from "../app/shared/ui/ui.service";
     selector: "ns-app",
     templateUrl: "./app.component.html",
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
+    @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent;
     activeChallenge = "";
     private drawerSub: Subscription;
+    private drawer: RadSideDrawer;
     // activeChallenges: string[] = [];
 
-    constructor(private uiService: UIService) {}
+    constructor(
+        private uiService: UIService,
+        private changeDetectionRef: ChangeDetectorRef
+    ) {}
 
     ngOnInit() {
         this.drawerSub = this.uiService.drawerState.subscribe(() => {
-            console.log("Toggle side drawer");
+            if (this.drawer) {
+                this.drawer.toggleDrawerState();
+            }
+
+            // this.drawerComponent.sideDrawer.toggleDrawerState();
         });
+    }
+
+    ngAfterViewInit() {
+        // this.drawerSub = this.uiService.drawerState.subscribe(() => {
+        //     this.drawerComponent.sideDrawer.toggleDrawerState();
+        // });
+
+        this.drawer = this.drawerComponent.sideDrawer;
+        this.changeDetectionRef.detectChanges();
     }
 
     ngOnDestroy() {
@@ -31,5 +53,9 @@ export class AppComponent implements OnInit, OnDestroy {
         // this.activeChallenges.push(challengeDescription);
         this.activeChallenge = challengeDescription;
         console.log(challengeDescription);
+    }
+
+    onLogout() {
+        this.uiService.toggleDrawer();
     }
 }
