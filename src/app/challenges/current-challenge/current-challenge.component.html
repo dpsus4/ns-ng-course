@@ -18,16 +18,17 @@
     </GridLayout>
   </ng-template>
 </ListView> -->
-<ns-action-bar title="Current challenge"></ns-action-bar>
+<ns-action-bar title="Current challenge" [showBackButton]="false">
+  <ActionItem ios.position="right" android.position="actionBar"><Label text="Replace" nsRouterLink="/challenges/replace" pageTransition="slideLeft"></Label></ActionItem>
+  <ActionItem ios.position="right" android.position="actionBar"><Label text="Edit" nsRouterLink="/challenges/edit" pageTransition="slideLeft"></Label></ActionItem>
+</ns-action-bar>
+
 <StackLayout>
   <Label
     class="title"
     text="The current challenge"
     horizontalAlignment="center"
   ></Label>
-  <Button
-    text="Edit"
-    class="btn btn-primary"
-    (tap)="onEdit()"
-  ></Button>
+  <Button text="Edit" class="btn btn-primary" (tap)="onEdit()"></Button>
+  <Button text="Replace" nsRouterLink="/challenges/replace"></Button>
 </StackLayout>

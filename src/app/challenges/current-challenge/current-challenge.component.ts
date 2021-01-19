@@ -5,7 +5,6 @@ import { RouterExtensions } from "@nativescript/angular";
 import { isAndroid, Page } from "@nativescript/core";
 import { ItemEventData } from "@nativescript/core/ui/list-view";
 
-
 @Component({
     selector: "ns-current-challenge",
     templateUrl: "./current-challenge.component.html",
@@ -18,11 +17,11 @@ export class CurrentChallengeComponent {
     // onItemTap(args: ItemEventData) {
     //     console.log(args);
     // }
-    constructor(private router: RouterExtensions) { }
+    constructor(private router: RouterExtensions) {}
 
     onEdit() {
-        this.router.navigate(["/edit-challenge"]);
+        this.router.navigate(["/challenges/edit"], {
+            transition: { name: "slideLeft" },
+        });
     }
-
-
 }
