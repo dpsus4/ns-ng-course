@@ -1,4 +1,4 @@
-import { OnInit, ViewChild } from "@angular/core";
+import { OnInit, ViewChild, ViewContainerRef } from "@angular/core";
 import { OnDestroy } from "@angular/core";
 import { AfterViewInit } from "@angular/core";
 import { ChangeDetectorRef } from "@angular/core";
@@ -21,7 +21,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     constructor(
         private uiService: UIService,
-        private changeDetectionRef: ChangeDetectorRef
+        private changeDetectionRef: ChangeDetectorRef,
+        private vcRef: ViewContainerRef
     ) {}
 
     ngOnInit() {
@@ -32,6 +33,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
             // this.drawerComponent.sideDrawer.toggleDrawerState();
         });
+
+        this.uiService.setRootVCRef(this.vcRef);
     }
 
     ngAfterViewInit() {
