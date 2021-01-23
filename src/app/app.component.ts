@@ -11,6 +11,7 @@ import { UIService } from "../app/shared/ui/ui.service";
 @Component({
     selector: "ns-app",
     templateUrl: "./app.component.html",
+    moduleId: module.id
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent;
