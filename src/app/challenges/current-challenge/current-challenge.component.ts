@@ -6,7 +6,8 @@ import { isAndroid, Page } from "@nativescript/core";
 import { ItemEventData } from "@nativescript/core/ui/list-view";
 import { ModalDialogService } from "@nativescript/angular";
 import { DayModalComponent } from "../day-modal/day-modal.component";
-import { UIService } from "src/app/shared/ui/ui.service";
+import { UIService } from "../../shared/ui/ui.service";
+// import { UIService } from "~/app/shared/ui/ui.service";
 
 @Component({
     selector: "ns-current-challenge",
