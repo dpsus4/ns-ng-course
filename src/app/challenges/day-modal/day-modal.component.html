@@ -1,4 +1,4 @@
-<FlexboxLayout>
+<FlexboxLayout android:justifyContent="center">
     <Label [text]="loadedDate | date"></Label>
     <Button class="btn" text="Completed" (tap)="onHandleInput('complete')"></Button>
     <Button class="btn" text="Failed" (tap)="onHandleInput('fail')"></Button>
