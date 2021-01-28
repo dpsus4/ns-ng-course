@@ -1,0 +1,9 @@
+.highlighted {
+    background-color: red;
+    color: white;
+}
+
+.standard {
+    background-color: blue;
+    color: white;
+}
