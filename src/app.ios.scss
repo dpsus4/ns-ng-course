@@ -1,10 +1,11 @@
-@import "./app.common.css";
+@import "app.common";
+@import "~nativescript-theme-core/scss/platforms/index.ios";
 
 .btn {
-    background: #7c015d;
+    background: transparent;
     border-width: 1;
     border-color: #7c015d;
-    color: white;
+    color: #7c015d;
     width: 100%;
     padding: 5 10;
     border-radius: 30%;
