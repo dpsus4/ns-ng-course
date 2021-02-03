@@ -12,7 +12,7 @@ ActionBar {
    color: white;
 }
 
-/*
+
 .drawer-container {
     background: linear-gradient(140deg, #2b0c72, #5c3fa0);
 
@@ -20,4 +20,15 @@ ActionBar {
     justify-content: center;
     align-items: center;
     padding: 20;
-} */
+}
+
+.btn-flat {
+    background: transparent;
+    border-color: transparent;
+    border-width: 1;
+}
+
+.h1 {
+    font-weight: bold;
+    color: $primary;
+}
