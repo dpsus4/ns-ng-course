@@ -20,6 +20,12 @@ ActionBar {
     justify-content: center;
     align-items: center;
     padding: 20;
+
+    .btn {
+        width: 80%;
+        font-size: 24;
+        height: 45;
+    }
 }
 
 .btn-flat {
