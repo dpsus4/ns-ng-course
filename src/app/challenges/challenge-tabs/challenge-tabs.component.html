@@ -1,13 +1,13 @@
 <TabView>
   <StackLayout>
-    <page-router-outlet name="today" *tabItem="{ title: 'Today' }">
+    <page-router-outlet name="today" *tabItem="{ title: 'Today', iconSource: "res://check" }">
       <Label text="Tab 1"></Label>
     </page-router-outlet>
   </StackLayout>
   <StackLayout>
     <router-outlet
       name="currentChallenge"
-      *tabItem="{ title: 'Current challenge' }"
+      *tabItem="{ title: 'Current challenge', iconSource: 'res://trophy' }"
     >
       <Label text="Tab 2"></Label>
     </router-outlet>

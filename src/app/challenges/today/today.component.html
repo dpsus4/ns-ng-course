@@ -2,10 +2,12 @@
   title="Today's challenge"
   [showBackButton]="false"
 ></ns-action-bar>
-<ns-challenge-actions
-  (actionSelect)="onActionSelected($event)"
-  cancelText="Reset"
-></ns-challenge-actions>
+<GridLayout>
+  <ns-challenge-actions
+    (actionSelect)="onActionSelected($event)"
+    cancelText="Reset"
+  ></ns-challenge-actions>
+</GridLayout>
 <!-- <StackLayout>
   <Button class="btn btn-success btn-rounded-lg" text="Completed"></Button>
   <Button class="btn btn-fail btn-rounded-lg" text="Failed"></Button>

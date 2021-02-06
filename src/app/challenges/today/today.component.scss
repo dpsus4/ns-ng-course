@@ -10,6 +10,13 @@
 @import "~@nativescript-theme-core/scss/light";
 @import "../../../theme/colors";
 
+GridLayout {
+    background-image: url("res://summit");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 FlexboxLayout {
     flex-direction: column;
     justify-content: center;
