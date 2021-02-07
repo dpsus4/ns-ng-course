@@ -5,15 +5,23 @@
 <FlexboxLayout justifyContent="space-between" class="form">
   <StackLayout class="input-field">
     <Label class="label" text="Title"></Label>
-    <TextField class="input"></TextField>
+    <TextField class="input" returnKeyType="next" required></TextField>
   </StackLayout>
   <StackLayout class="input-field">
     <Label class="label" text="Description"></Label>
-    <TextField class="input"></TextField>
+    <TextView
+      class="input"
+      returnKeyType="done"
+      required
+      ngModel
+      #titleCtrl="ngModel"
+    ></TextView>
+    <Label
+      *ngIf="!titleCtrl.valid && titleCtrl.touched"
+      [text]="Please enter a valid title."
+    ></Label>
   </StackLayout>
-  <Button class="btn btn-primary" text="Save">
-
-  </Button>
+  <Button class="btn btn-primary" text="Save"> </Button>
   <!-- <TextField
     hint="Challenge title"
     [(ngModel)]="challengeDescription"

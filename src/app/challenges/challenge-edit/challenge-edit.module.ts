@@ -5,6 +5,7 @@ import {
 } from "@nativescript/angular";
 import { ChallengeEditComponent } from "./challenge-edit.component";
 import { SharedModule } from "../../shared/shared.module";
+import { NativeScriptFormsModule } from "@nativescript/angular/forms";
 
 @NgModule({
     declarations: [ChallengeEditComponent],
@@ -15,6 +16,7 @@ import { SharedModule } from "../../shared/shared.module";
             { path: "", component: ChallengeEditComponent },
         ]),
         SharedModule,
+        NativeScriptFormsModule,
     ],
 })
 export class ChallengeEditModule {}
