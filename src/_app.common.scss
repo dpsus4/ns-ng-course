@@ -12,6 +12,26 @@ ActionBar {
    color: white;
 }
 
+.input-field {
+    width: 80%;
+
+    .label {
+        color: $primary;
+        font-weight: bold;
+        font-family: "Oswald", "Oswald-Regular", "Oswald-";
+    }
+
+    .label.invalid {
+        color: red;
+    }
+
+    .input {
+        border-bottom-width: 2;
+        border-color: $primary;
+        width: 100%;
+    }
+}
+
 
 .drawer-container {
     background: linear-gradient(140deg, #2b0c72, #5c3fa0);
@@ -32,6 +52,11 @@ ActionBar {
     background: transparent;
     border-color: transparent;
     border-width: 1;
+}
+
+.ng-invalid.ngtouched {
+    border-bottom-color: red;
+    color: red;
 }
 
 .h1 {

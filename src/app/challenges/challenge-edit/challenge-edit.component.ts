@@ -2,7 +2,7 @@ import { Output } from "@angular/core";
 import { EventEmitter } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { PageRoute } from "@nativescript/angular";
+import { PageRoute, RouterExtensions } from "@nativescript/angular";
 
 @Component({
     selector: "ns-challenge-edit",
@@ -15,7 +15,8 @@ export class ChallengeEditComponent implements OnInit {
 
     constructor(
         private activatedRoute: ActivatedRoute,
-        private pageRoute: PageRoute
+        private pageRoute: PageRoute,
+        private router: RouterExtensions
     ) {}
 
     ngOnInit() {
@@ -33,6 +34,11 @@ export class ChallengeEditComponent implements OnInit {
                 }
             });
         });
+    }
+
+    onSubmit(title: string, description: string) {
+        console.log(title, description);
+        this.router.backToPreviousPage();
     }
     // @Output() input = new EventEmitter<string>();
     // challengeDescription = "";
