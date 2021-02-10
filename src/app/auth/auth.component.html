@@ -3,7 +3,7 @@
   [showBackButton]="false"
   [hasMenu]="false"
 ></ns-action-bar>
-<StackLayout class="input-field">
+<StackLayout class="form" [formGroup]="form">
   <Label class="label" text="E-Mail" [ngClass]="{ invalid: false }"></Label>
   <TextField
     class="input"
@@ -11,6 +11,8 @@
     keyboardType="email"
     [autocorrect]="false"
     autocapitalizationType="none"
+    formControlName="email"
+    #emailEl
   ></TextField>
 </StackLayout>
 <StackLayout class="input-field">
@@ -22,6 +24,8 @@
     autocapitalizationType="none"
     secure="true"
     hint="Min 6 characters"
+    formControlName="password"
+    #passwordEl
   ></TextField>
   <Label
     *ngIf="!descriptionCtrl.valid && descriptionCtrl.touched"
@@ -31,7 +35,7 @@
 <StackLayout>
   <Button
     text="Login"
-    class="btn btn-primary"
-    nsRouterLink="/challenges"
+    class="btn btn-primary btn-rounded-lg"
+    (tap)="onSubmit()"
   ></Button>
 </StackLayout>

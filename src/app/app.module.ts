@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { NativeScriptFormsModule, NativeScriptModule } from '@nativescript/angular';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular';
 import {ChallengeActionsModule} from "./challenges/challenge-actions/challenge-actions.module";
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -21,6 +22,7 @@ import {ChallengeActionsModule} from "./challenges/challenge-actions/challenge-a
     NativeScriptModule,
     NativeScriptFormsModule,
     NativeScriptUISideDrawerModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     SharedModule,
     ChallengeActionsModule

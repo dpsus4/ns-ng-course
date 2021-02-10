@@ -29,6 +29,12 @@ ActionBar {
         border-bottom-width: 2;
         border-color: $primary;
         width: 100%;
+        color: black;
+    }
+
+    input.ng-invalid.ngtouched {
+        border-bottom-color: red;
+        color: red;
     }
 }
 
@@ -54,10 +60,10 @@ ActionBar {
     border-width: 1;
 }
 
-.ng-invalid.ngtouched {
-    border-bottom-color: red;
-    color: red;
-}
+// .ng-invalid.ngtouched {
+//     border-bottom-color: red;
+//     color: red;
+// }
 
 .h1 {
     font-weight: bold;
