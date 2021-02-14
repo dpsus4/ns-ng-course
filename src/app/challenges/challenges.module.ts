@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { ChallengeEditComponent } from './challenge-edit/challenge-edit.component';
 import { ChallengeActionsModule } from './challenge-actions/challenge-actions.module';
+import { ChallengeService } from './challenge.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,6 @@ import { ChallengeActionsModule } from './challenge-actions/challenge-actions.mo
     TodayComponent
   ],
   imports: [NativeScriptCommonModule, ChallengesRoutingModule, SharedModule, ChallengeActionsModule],
-  schemas: [NO_ERRORS_SCHEMA]
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class ChallengesModule {}
