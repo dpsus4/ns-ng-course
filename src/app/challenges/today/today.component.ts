@@ -1,4 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
+import { ChallengeService } from "../challenge.service";
+import { Day } from "../day.model";
 
 @Component({
     selector: "ns-today",
@@ -6,15 +9,29 @@ import { Component, OnInit } from "@angular/core";
     styleUrls: ["./today.component.scss"],
     moduleId: module.id,
 })
-export class TodayComponent implements OnInit {
+export class TodayComponent implements OnInit, OnDestroy {
     isHighlighted = false;
+    currentDay: Day;
+    private curChallengeSub: Subscription;
 
-    constructor() {}
+    constructor(private challengeService: ChallengeService) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.challengeService.currentChallenge.subscribe((challenge) => {
+            if (challenge) {
+                this.currentDay = challenge.currentDay;
+            }
+        });
+    }
 
     onActionSelected(action: "complete" | "fail" | "cancel") {
         console.log(action);
+    }
+
+    ngOnDestroy() {
+        if (this.curChallengeSub) {
+            this.curChallengeSub.unsubscribe();
+        }
     }
 
     // onDemo() {

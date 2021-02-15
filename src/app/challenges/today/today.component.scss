@@ -38,3 +38,15 @@ FlexboxLayout {
     border-color: $fail;
     color: $white;
 }
+
+.no-challenge {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

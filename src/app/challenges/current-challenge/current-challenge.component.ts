@@ -27,8 +27,8 @@ export class CurrentChallengeComponent implements OnInit, OnDestroy {
     weekDays = ["S", "M", "T", "W", "T", "F", "S"];
     // days: { dayInMonth: number; dayInWeek: number }[] = [];
     currentChallenge: Challenge;
-    private currentMonth: number;
-    private currentYear: number;
+    // private currentMonth: number;
+    // private currentYear: number;
     private curChallengeSub: Subscription;
     // private daysInMonth: number;
 
@@ -71,8 +71,8 @@ export class CurrentChallengeComponent implements OnInit, OnDestroy {
         const startRow = 1;
         const weekRow = Math.floor(index / 7);
         const firstWeekDayOfMonth = new Date(
-            this.currentYear,
-            this.currentMonth,
+            new Date().getFullYear(),
+            new Date().getMonth(),
             1
         ).getDay();
 
