@@ -12,6 +12,7 @@ import { ChallengeService } from "../challenge.service";
 import { Challenge } from "../challenge.model";
 import { Subscription } from "rxjs";
 import { OnDestroy } from "@angular/core";
+import { Day } from "../day.model";
 // import { UIService } from "~/app/shared/ui/ui.service";
 
 @Component({
@@ -87,14 +88,18 @@ export class CurrentChallengeComponent implements OnInit, OnDestroy {
         });
     }
 
-    onChangeStatus() {
+    onChangeStatus(day: Day) {
+        if (this.getIsSettable(day.dayInMonth)) {
+            return;
+        }
+
         this.modalDialog
             .showModal(DayModalComponent, {
                 fullscreen: true,
                 viewContainerRef: this.uiService.getRootVCRef()
                     ? this.uiService.getRootVCRef()
                     : this.vcRef,
-                context: { date: new Date() },
+                context: { date: day.date },
             })
             .then((action: string) => {
                 console.log(action);
@@ -105,5 +110,9 @@ export class CurrentChallengeComponent implements OnInit, OnDestroy {
         if (this.curChallengeSub) {
             this.curChallengeSub.unsubscribe();
         }
+    }
+
+    getIsSettable(dayInMonth: number) {
+        return dayInMonth <= new Date().getDate();
     }
 }

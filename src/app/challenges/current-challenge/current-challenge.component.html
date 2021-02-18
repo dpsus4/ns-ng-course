@@ -48,7 +48,7 @@
   <Button
     ios:text="Change status"
     android:text="Change"
-    (tap)="onChangeStatus()"
+    (tap)="onChangeStatus(day)"
   ></Button>
 </StackLayout>
 <FlexboxLayout class="page">
@@ -64,7 +64,7 @@
     <Label class="text-center week-day-label" *ngFor="let weekDay of weekDays; let i = index" [text]="weekDay" row="0" [col]="i">
     </Label>
     <FlexboxLayout class="day completed" (tap)="onChangeStatus()">
-      <Label width="50" height="50" *ngFor="let day of currentChallenge.days; let i = index" [text]="day.dayInMonth" [row]="getRow()" [col]="day.dayInWeek"></Label>
+      <Label [ngClass]="{'not-settable': !getIsSettable(day.dayInMonth)}" width="50" height="50" *ngFor="let day of currentChallenge.days; let i = index" [text]="day.dayInMonth" [row]="getRow()" [col]="day.dayInWeek"></Label>
     </FlexboxLayout>
   </StackLayout>
   </GridLayout>
