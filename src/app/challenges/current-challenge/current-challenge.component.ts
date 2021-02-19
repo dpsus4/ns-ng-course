@@ -12,7 +12,7 @@ import { ChallengeService } from "../challenge.service";
 import { Challenge } from "../challenge.model";
 import { Subscription } from "rxjs";
 import { OnDestroy } from "@angular/core";
-import { Day } from "../day.model";
+import { Day, DayStatus } from "../day.model";
 // import { UIService } from "~/app/shared/ui/ui.service";
 
 @Component({
@@ -89,7 +89,7 @@ export class CurrentChallengeComponent implements OnInit, OnDestroy {
     }
 
     onChangeStatus(day: Day) {
-        if (this.getIsSettable(day.dayInMonth)) {
+        if (!this.getIsSettable(day.dayInMonth)) {
             return;
         }
 
@@ -101,8 +101,8 @@ export class CurrentChallengeComponent implements OnInit, OnDestroy {
                     : this.vcRef,
                 context: { date: day.date },
             })
-            .then((action: string) => {
-                console.log(action);
+            .then((status: DayStatus) => {
+                this.challengeService.updateDayStatus(day.dayInMonth, status);
             });
     }
 
