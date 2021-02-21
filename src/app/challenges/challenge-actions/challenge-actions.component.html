@@ -4,12 +4,14 @@
     class="btn btn-fail btn-rounded-lg"
     text="Completed"
     (tap)="onAction('complete')"
-    ngIf='action !== "complete"'
+    *ngIf='action !== "complete"'
+    [isEnabled]="!done"
   ></Button>
   <StackLayout
     height="60"
     class="btn btn-success btn-rounded-lg animate-button"
-    *ngIf="action === 'complete'"
+    *ngIf="action === 'fail'"
+    [isEnabled]="!done"
   >
     <Label
       text="&#xf00d;"
