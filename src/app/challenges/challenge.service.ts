@@ -7,6 +7,8 @@ import { take } from "rxjs/operators";
 @Injectable({ providedIn: "root" })
 export class ChallengeService {
     private _currentChallenge = new BehaviorSubject<Challenge>(null);
+    // public title: string;
+    // public description: string;
 
     get currentChallenge() {
         return this._currentChallenge.asObservable();
@@ -37,6 +39,14 @@ export class ChallengeService {
             this._currentChallenge.next(challenge);
 
             console.log(challenge.days[dayIndex]);
+        });
+    }
+
+    updateChallenge(title: string, description: string) {
+        this._currentChallenge.pipe(take(1)).subscribe(challenge => {
+            const updatedChallenge = new Challenge(title, description, challenge.year, challenge.month, challenge.days);
+
+            this._currentChallenge.next(updatedChallenge);
         });
     }
 }
