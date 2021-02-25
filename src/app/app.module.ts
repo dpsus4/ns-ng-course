@@ -5,7 +5,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DayModalComponent } from './challenges/day-modal/day-modal.component';
 import { SharedModule } from './shared/shared.module';
-import { NativeScriptFormsModule, NativeScriptModule } from '@nativescript/angular';
+import { NativeScriptFormsModule, NativeScriptHttpClientModule, NativeScriptModule } from '@nativescript/angular';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular';
 import {ChallengeActionsModule} from "./challenges/challenge-actions/challenge-actions.module";
 import { ReactiveFormsModule } from '@angular/forms';
@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     NativeScriptModule,
     NativeScriptFormsModule,
+    NativeScriptHttpClientModule,
     NativeScriptUISideDrawerModule,
     ReactiveFormsModule,
     AppRoutingModule,

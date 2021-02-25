@@ -1,4 +1,4 @@
-<TabView>
+<TabView androidTabsPosition="bottom" *ngIf="!isLoading">
   <StackLayout>
     <page-router-outlet name="today" *tabItem="{ title: 'Today', iconSource: "res://check" }">
       <Label text="Tab 1"></Label>
@@ -13,3 +13,6 @@
     </router-outlet>
   </StackLayout>
 </TabView>
+<FlexboxLayout justifyContent="center" alignItems="center" *ngIf="isLoading">
+  <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
+</FlexboxLayout>
