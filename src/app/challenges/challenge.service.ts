@@ -52,7 +52,8 @@ export class ChallengeService {
             new Date().getMonth()
         );
 
-        this.http.put("", newChallenge).subscribe((res) => console.log(res));
+        this.saveToServer(newChallenge);
+        // this.http.put("", newChallenge).subscribe((res) => console.log(res));
         this._currentChallenge.next(newChallenge);
     }
 
@@ -70,6 +71,7 @@ export class ChallengeService {
             this._currentChallenge.next(challenge);
 
             console.log(challenge.days[dayIndex]);
+            this.saveToServer(challenge);
         });
     }
 
@@ -83,7 +85,14 @@ export class ChallengeService {
                 challenge.days
             );
 
+            this.saveToServer(updatedChallenge);
             this._currentChallenge.next(updatedChallenge);
+        });
+    }
+
+    private saveToServer(challenge: Challenge) {
+        this.http.put("", challenge).subscribe((res) => {
+            console.log(res);
         });
     }
 }
