@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { RouterExtensions } from "@nativescript/angular";
 import { TextField } from "@nativescript/core";
+import {AuthService} from "./auth.service";
 
 @Component({
     selector: "ns-auth",
@@ -19,7 +20,7 @@ export class AuthComponent implements OnInit {
     @ViewChild("passwordEl") passwordEl: ElementRef<TextField>;
     @ViewChild("emailEl") emailEl: ElementRef<TextField>;
 
-    constructor(private router: RouterExtensions) {}
+    constructor(private router: RouterExtensions, private authService: AuthService) {}
 
     ngOnInit(): void {
         this.form = new FormGroup({
