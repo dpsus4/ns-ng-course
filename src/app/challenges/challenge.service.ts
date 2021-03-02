@@ -96,8 +96,23 @@ export class ChallengeService {
     }
 
     private saveToServer(challenge: Challenge) {
-        this.http.put("", challenge).subscribe((res) => {
-            console.log(res);
-        });
+        this.authService.user
+            .pipe(
+                switchMap((currentUser) => {
+                    if (!currentUser || !currentUser.isAuth) {
+                        return ;
+                    }
+
+                    return this.http.put("", challenge);
+                })
+            )
+            .subscribe((res) => {
+                console.log(res);
+            });
     }
+
+    // this.http.put("", challenge).subscribe((res) => {
+    //     console.log(res);
+    // });
+    // }
 }

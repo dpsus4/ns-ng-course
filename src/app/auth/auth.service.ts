@@ -5,6 +5,7 @@ import { catchError } from "rxjs/operators";
 import { User } from "./user.model";
 import { take, tap } from "rxjs/operators";
 import { BehaviorSubject } from "rxjs";
+import { RouterExtensions } from "@nativescript/angular";
 
 const FIREBASE_API_KEY = "";
 
@@ -22,7 +23,7 @@ interface AuthResponseData {
 export class AuthService {
     private _user = new BehaviorSubject<User>(null);
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private router: RouterExtensions) {}
 
     get user() {
         return this._user.asObservable();
@@ -87,6 +88,11 @@ export class AuthService {
             default:
                 alert("Authentication failed, check your credentials");
         }
+    }
+
+    logout() {
+        this._user.next(null);
+        this.router.navigate(["/"], {clearHistory: true});
     }
 
     private handleLogin(
