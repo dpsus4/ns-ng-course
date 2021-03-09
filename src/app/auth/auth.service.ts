@@ -6,6 +6,13 @@ import { User } from "./user.model";
 import { take, tap } from "rxjs/operators";
 import { BehaviorSubject } from "rxjs";
 import { RouterExtensions } from "@nativescript/angular";
+import {
+    setString,
+    getString,
+    hasKey,
+    remove,
+} from "tns-core-modules/application-settings";
+import { of } from "rxjs";
 
 const FIREBASE_API_KEY = "";
 
@@ -92,7 +99,26 @@ export class AuthService {
 
     logout() {
         this._user.next(null);
-        this.router.navigate(["/"], {clearHistory: true});
+        remove("userData");
+        this.router.navigate(["/"], { clearHistory: true });
+    }
+
+    autoLogin() {
+        if (!hasKey("userData")) {
+            return of(false);
+        }
+
+        const userData: {email: string, id: string, _token: string, _tokenExpirationDate: string} = JSON.parse(getString("userData"));
+        const loadedUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationDate));
+
+        if (loadedUser.isAuth) {
+            this._user.next(loadedUser);
+            this.router.navigate(["/challenges"], {clearHistory: true});
+
+            return of(true);
+        }
+
+        return of(false);
     }
 
     private handleLogin(
@@ -106,7 +132,7 @@ export class AuthService {
         );
 
         const user = new User(email, userId, token, expirationDate);
-
+        setString('userData', JSON.stringify(user));
         this._user.next(user);
     }
 }
