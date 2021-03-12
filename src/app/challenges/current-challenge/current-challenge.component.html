@@ -58,8 +58,8 @@
     </Label>
     <Button class="btn btn-primary" text="Create one!" [nsRouterLink]="['']"></Button>
   </StackLayout>
-  <StackLayout *ngIf="currentChallenge">
-  <Label class="h1 text-center" [text]="currentChallenge.title"></Label>
+  <StackLayout *ngIf="currentChallenge" marginBottom="10" marginTop="10">
+  <Label class="h1 text-center" [text]="currentChallenge.title" width="100%"></Label>
   <Label class="body text-center" text="currentChallenge.description"></Label>
   <GridLayout rows="auto,*,*,*,*,*,*" columns="*,*,*,*,*,*,*">
     <Label class="text-center week-day-label" *ngFor="let weekDay of weekDays; let i = index" [text]="weekDay" row="0" [col]="i">

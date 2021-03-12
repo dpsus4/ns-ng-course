@@ -83,7 +83,9 @@ export class AuthComponent implements OnInit {
             this.authService.login(email, password).subscribe(
                 (resData) => {
                     this.isLoading = false;
-                    this.router.navigate(["/challenges"]);
+                    this.router.navigate(["/challenges"], {
+                        clearHistory: true,
+                    });
                 },
                 (err) => {
                     console.log(err);
