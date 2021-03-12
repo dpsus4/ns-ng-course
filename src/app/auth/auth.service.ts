@@ -13,6 +13,7 @@ import {
     remove,
 } from "tns-core-modules/application-settings";
 import { of } from "rxjs";
+import {ChallengeService} from "../challenges/challenge.service";
 
 const FIREBASE_API_KEY = "";
 
@@ -31,7 +32,7 @@ export class AuthService {
     private _user = new BehaviorSubject<User>(null);
     private tokenExpirationTimer: number;
 
-    constructor(private http: HttpClient, private router: RouterExtensions) {}
+    constructor(private http: HttpClient, private router: RouterExtensions, private challengeService: ChallengeService) {}
 
     get user() {
         return this._user.asObservable();
@@ -106,6 +107,7 @@ export class AuthService {
             clearTimeout(this.tokenExpirationTimer);
         }
 
+        this.challengeService.cleanUp();
         this.router.navigate(["/"], { clearHistory: true });
     }
 

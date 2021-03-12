@@ -1,19 +1,27 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Subscription } from "rxjs";
 import { Challenge } from "./challenge.model";
 import { DayStatus } from "./day.model";
 import { take, tap, switchMap } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 import { Day } from "./day.model";
 import { AuthService } from "../auth/auth.service";
+import { OnDestroy } from "@angular/core";
 
 @Injectable({ providedIn: "root" })
-export class ChallengeService {
+export class ChallengeService implements OnDestroy {
     private _currentChallenge = new BehaviorSubject<Challenge>(null);
+    private userSub: Subscription;
     // public title: string;
     // public description: string;
 
-    constructor(private http: HttpClient, private authService: AuthService) {}
+    constructor(private http: HttpClient, private authService: AuthService) {
+        this.userSub = this.authService.user.subscribe((user) => {
+            if (!user) {
+                this._currentChallenge.next(null);
+            }
+        });
+    }
 
     get currentChallenge() {
         return this._currentChallenge.asObservable();
@@ -100,7 +108,7 @@ export class ChallengeService {
             .pipe(
                 switchMap((currentUser) => {
                     if (!currentUser || !currentUser.isAuth) {
-                        return ;
+                        return;
                     }
 
                     return this.http.put("", challenge);
@@ -109,6 +117,14 @@ export class ChallengeService {
             .subscribe((res) => {
                 console.log(res);
             });
+    }
+
+    ngOnDestroy() {
+        this.userSub.unsubscribe();
+    }
+
+    cleanUp() {
+        this._currentChallenge.next(null);
     }
 
     // this.http.put("", challenge).subscribe((res) => {
